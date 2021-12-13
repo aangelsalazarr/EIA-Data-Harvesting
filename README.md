@@ -1,4 +1,4 @@
-##### EIA Data Harvesting
+EIA Data Harvesting
 
 **Author: Angel Salazar**
 
