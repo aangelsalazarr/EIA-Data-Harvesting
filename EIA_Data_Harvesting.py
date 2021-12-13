@@ -37,7 +37,7 @@ for i in range(len(PADD_KEY)):
     json_data = r.json()
 
     if r.status_code == 200:
-        print('Success!')
+        print('Success getting data from ' + PADD_KEY[i])
     else:
         print('Error :(')
 
@@ -46,3 +46,9 @@ for i in range(len(PADD_KEY)):
 
     df.set_index('Date', drop = True, inplace = True)
     final_data.append(df)
+
+# combine all the data into one df
+##crude = pd.concat(final_data, axis = 1)
+
+# create date as datetype datatype
+##crude['Year'] = crude.index
