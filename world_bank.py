@@ -8,7 +8,7 @@ electricity_access = "EG.ELC.ACCS.ZS"
 renewable_electricity_excluding_hydro = "EG.ELC.RNWX.KH"
 renewable_energy_consumption = "EG.FEC.RNEW.ZS"
 
-countries = ["USA", "CHN", "IND", "WLD"]
+countries = ["USA"]
 
 # creating a dataframe on electricity access
 df1 = wb.download(indicator=electricity_access, country=countries, start=2010,
@@ -33,11 +33,11 @@ df_merged = reduce(lambda left, right: pd.merge(left, right, on=['country'],
                                                 how="outer"), data_frames)
 
 # renaming our col names
-# df_merged.columns = ["Electricity Access (%)", "Renewable Electricity Excluding Hydro (kWh)",
-                     # "Renewable Energy Consumption (%)"]
+df_merged.columns = ["Electricity Access (%)", "Renewable Electricity Excluding Hydro (kWh)",
+                     "Renewable Energy Consumption (%)"]
 
 print(df_merged)
 
 # now we want to visualize some data
-df_merged.plot(y="Renewable Energy Consumption (%)", kind="scatter")
+df_merged.plot(x="Electricity Access (%)", y="Renewable Energy Consumption (%)", kind="scatter")
 plt.show()
