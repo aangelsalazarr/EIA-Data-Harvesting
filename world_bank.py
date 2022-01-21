@@ -25,7 +25,7 @@ df2 = wb.download(indicator=renewable_electricity_excluding_hydro, country=count
 
 # creating a dataframe on renewable energy consumption (%)
 df3 = pd.DataFrame(data=wb.download(indicator=renewable_energy_consumption, country=countries,
-                  start=2000, end=2018))
+                  start=1990, end=2018))
 df3.reset_index(inplace=True)
 df3.columns = ['country', 'year', 'value']
 df3['year'] = pd.to_datetime(df3['year'])
